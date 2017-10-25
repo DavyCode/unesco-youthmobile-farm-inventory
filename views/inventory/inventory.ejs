@@ -1,0 +1,329 @@
+<% include ../partials/head%>
+<% include ../partials/header%>
+
+
+<div class="container">   
+    <div class="row">
+        <!-- <div class="col-md-3"> -->
+            <div class="well"> 
+                <div class="row text-center" style="display:flex; flex-wrap: wrap">
+                        <div class="col-md-12 col-sm-6">
+                            <div class="thumbnail">
+<!-- ==================================CHECK LIVESTOCK DEPARTMENT ======================================================-->
+    <% if(currentUser.department == "livestock"){%>
+                                     <div class="jumbotron" style="background-color: #ffcc;">
+                                        <h1>DAILY LIVESTOCK RECORDS</h1> 
+                                     </div> 
+                                        <table class="table table-condensed table-hover" border="4px" style="color: green; align-content: center;">
+                                        <thead>
+                                                <li class="list-group-item active"></li>                                                
+                                            <tr>
+                                                <strong>
+                                                        <th> Days </th>
+                                                        <th> Livestock</th>
+                                                        <th> No. Livestock</th>
+                                                        <th> Created by </th>
+                                                 </strong>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                 <% allInventory.forEach( (data) => { %>
+                                        <%if( data.selected_livestock){%>    
+                                                <tr> 
+                                                    <td>
+                                                        <%= data.createdAt.toLocaleDateString()%>
+                                                    </td>
+                                                    <td>
+                                                        <%= data.selected_livestock %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data.available_livestock%>
+                                                    </td>
+                                                    <td>
+                                                        <%=data.author.username %>
+                                                    </td>
+                                                </tr>
+                                        <%}else{%>  
+                                            
+                                    <%}%>      
+                                <%});%>                              
+                                        </tbody>
+                            <!-- ======================== TABLE BODY ENDS HERE ========================= -->
+                                    </table>
+  <!-- =============================== CHECK FEED DEPARTMENT  ====================================================================================                               -->
+    <%}else if(currentUser.department == "feed"){%> 
+                                     <div class="jumbotron" style="background-color: #ffcc;">
+                                        <h1>DAILY FEED RECORDS</h1> 
+                                     </div> 
+                                    <table class="table table-condensed table-hover" border="4px" style="color: green; align-content: center;">
+                                            <thead>
+                                                    <li class="list-group-item active"></li>                                                
+                                                <tr>
+                                                    <strong>
+                                                            <th> Days </th>
+                                                            <th> Fed Livestock</th>
+                                                            <th> No. Livestock Fed</th>
+                                                            <th> Tons of Feed</th>
+                                                            <th> Amount </th>
+                                                            <th> Created by </th>
+                                                    </strong>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                    <% allInventory.forEach( (data) => { %>
+                                        <%if( data.tons_of_feed){%>                                                
+                                                <tr> 
+                                                    <td>
+                                                        <%= data.createdAt.toLocaleDateString() %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data.fed_livestock %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data.number_livestock_fed %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data.tons_of_feed %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data.amount %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data.author.username %>
+                                                    </td>
+                                                </tr>
+                                        <%}else{%>  
+                                                    
+                                        <%}%>         
+                                    <%});%>
+                                    
+                                            </tbody>
+                                <!-- ======================== TABLE BODY ENDS HERE ========================= -->
+                                        </table>
+        <!-- ================================== CHECK HEALTH DEPARTMENT===========================================================                                 -->
+        <%}else if(currentUser.department == "health"){%> 
+                                        <div class="jumbotron" style="background-color: #ffcc;">
+                                        <h1>DAILY HEALTH RECORDS</h1> 
+                                        </div> 
+                                        <table class="table table-condensed table-hover" border="4px" style="color: green; align-content: center;">
+                                                <thead>
+                                                        <li class="list-group-item active"></li>                                                
+                                                    <tr>
+                                                        <strong>
+                                                                <th> Days </th>
+                                                                <th> Livestock</th>
+                                                                <th> Death </th>
+                                                                <th> Birth </th>
+                                                                <th> Vaccinated </th>
+                                                                <th> Sick </th>
+                                                                <th> Created by </th>
+                                                                
+                                                        </strong>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                        <% allInventory.forEach( (data) => { %>
+                                            <%if( data.death){%> 
+                                                    <tr> 
+                                                        <td>
+                                                            <%= data.createdAt.toLocaleDateString() %>
+                                                        </td>
+                                                        <td>
+                                                            <%= data.health_selected_livestock %>
+                                                        </td>
+                                                        <td>
+                                                            <%= data.death %>
+                                                        </td>
+                                                        <td>
+                                                            <%= data.birth %>
+                                                        </td>
+                                                        <td>
+                                                            <%= data.vaccinated %>
+                                                        </td>
+                                                        <td>
+                                                            <%= data.sick %>
+                                                        </td>
+                                                        <td>
+                                                            <%=data.author.username %>
+                                                        </td>
+                                                    </tr>
+                                             <%}else{%>  
+                                                    
+                                             <%}%>          
+                                        <%});%>
+                                                </tbody>
+                                    <!-- ======================== TABLE BODY ENDS HERE ========================= -->
+                                        </table>
+            <!-- =================================== CHECK ADMIN AND HELP DESK======================================================================== -->
+<%}else if(currentUser.department == "admin" || currentUser.department == "help-desk"){%> 
+                                <!-- ================================== LIVESTOCK DEPARTMENT ======================================================-->
+                                <div class="jumbotron" style="background-color: #ffcc;">
+                                        <h1>DAILY LIVESTOCK RECORDS</h1> 
+                                </div> 
+                                <table class="table table-condensed table-hover" border="4px" style="color: green; align-content: center;">
+                                        <thead>
+                                                <li class="list-group-item active"></li>                                                
+                                            <tr>
+                                                <strong>
+                                                        <th> Days </th>
+                                                        <th> Livestock</th>
+                                                        <th> No. Livestock</th>
+                                                        <th> Created by </th>
+                                                 </strong>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                 <% allInventory.forEach( (data) => { %>
+                                      <%if(data.selected_livestock){%> 
+                                            <tr> 
+                                                <td>
+                                                     <%= data.createdAt.toLocaleDateString()%>
+                                                </td>
+                                                <td>
+                                                     <%= data.selected_livestock %>
+                                                </td>
+                                                <td>
+                                                     <%= data.available_livestock%>
+                                                </td>
+                                                <td>
+                                                     <%=data.author.username %>
+                                                </td>
+                                            </tr>
+                                       <%}else{%> 
+
+                                        <%}%>    
+                                <%});%>
+                                
+                                        </tbody>
+                            <!-- ======================== TABLE BODY ENDS HERE ========================= -->
+                                    </table>
+  <!-- =============================== FEED DEPARTMENT  ====================================================================================   -->
+                                    <div class="jumbotron" style="background-color: #ffcc;">
+                                        <h1>DAILY FEED RECORDS</h1> 
+                                    </div> 
+                                    <table class="table table-condensed table-hover" border="4px" style="color: green; align-content: center;">
+                                            <thead>
+                                                    <li class="list-group-item active"></li>                                                
+                                                <tr>
+                                                    <strong>
+                                                            <th> Days </th>
+                                                            <th> Fed Livestock</th>
+                                                            <th> No. Livestock Fed</th>
+                                                            <th> Tons of Feed</th>
+                                                            <th> Amount </th>
+                                                            <th> Created by </th>
+                                                    </strong>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                    <% allInventory.forEach( (data) => { %>
+                                        <%if( data.tons_of_feed){%> 
+                                                <tr> 
+                                                    <td>
+                                                        <%= data.createdAt.toLocaleDateString() %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data.fed_livestock %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data.number_livestock_fed %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data.tons_of_feed %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data.amount %>
+                                                    </td>
+                                                    <td>
+                                                        <%=data.author.username %>
+                                                    </td>
+                                                </tr>
+                                        <%}else{%> 
+
+                                        <%}%>          
+                                    <%});%>
+                                    
+                                            </tbody>
+                                <!-- ======================== TABLE BODY ENDS HERE ========================= -->
+                                    </table>
+
+         <!-- ================================== HEALTH DEPARTMENT===========================================================                                 -->
+                                    <div class="jumbotron" style="background-color: #ffcc;">
+                                        <h1>DAILY HEALTH RECORDS</h1> 
+                                     </div> 
+         
+                                    <table class="table table-condensed table-hover" border="4px" style="color: green; align-content: center;">
+                                        <thead>
+                                                <li class="list-group-item active"></li>                                                
+                                            <tr>
+                                                <strong>
+                                                        <th> Days </th>
+                                                        <th> Livestock</th>
+                                                        <th> Death </th>
+                                                        <th> Birth </th>
+                                                        <th> Vaccinated </th>
+                                                        <th> Sick </th>
+                                                        
+                                                </strong>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                <% allInventory.forEach( (data) => { %>
+                                    <%if( data.death){%> 
+                                            <tr> 
+                                                <td>
+                                                    <%= data.createdAt.toLocaleDateString() %>
+                                                </td>
+                                                <td>
+                                                    <%= data.health_selected_livestock %>
+                                                </td>
+                                                <td>
+                                                    <%= data.death %>
+                                                </td>
+                                                <td>
+                                                    <%= data.birth %>
+                                                </td>
+                                                <td>
+                                                    <%= data.vaccinated %>
+                                                </td>
+                                                <td>
+                                                    <%= data.sick %>
+                                                </td>
+                                                <td>
+                                                    <%=data.author.username %>
+                                                </td>
+                                            </tr>
+                                     <%}else{%> 
+
+                                    <%}%>         
+                                <%});%>
+                                        </tbody>
+                            <!-- ======================== TABLE BODY ENDS HERE ========================= -->
+                                </table>
+    <!-- ===================================================================================================================================== -->
+        <%}else{%>  
+                     <div class="jumbotron" style="background-color: #ffcc;">
+                        <h1>HOW DID YOU GET HERE WITH NO DEPARTMENT??? PLEASE CONSULT THE ADMIN OFFICE</h1>
+                    </div> 
+         <%}%> 
+      <!-- ===================================================================================================== -->
+                                     <div class="col-md-3">
+                                            <h3>AGRO TECH</h3>
+                                            <div>
+                                                <li class="list-group-item active">info 1</li>
+                                                <li class="list-group-item">info 2</li>
+                                                <li class="list-group-item">info 3</li>
+                                            </div>
+                                        </div>
+                        </div>
+                    </div> 
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% include ../partials/footer%>
+<% include ../partials/foot %>
+

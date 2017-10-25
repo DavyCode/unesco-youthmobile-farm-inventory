@@ -1,0 +1,149 @@
+<% include ./partials/head%>
+<% include ./partials/header%>
+
+ <div class="container-fluid">
+        <div class="row">
+                        <div class="col-lg-5 col-md-6"> 
+                        <div class="thumbnail" style="margin-top: -20px; border-radius: 0px; margin-left: -20px; padding: 10px; width: 45%; height: 800px; line-height: 3.42857143; background-color: rgb(11, 211, 134);">  
+                                <% if(currentUser.department == "help-desk"){%>
+                                            <div style="width: 450%;">  
+
+                                                     <ul class="nav nav-pills nav-stacked" style="width: 15%; margin-top: 50px; color: wheat" >
+                                                            <!-- Home -->
+                                                            <li role="presentation"><a href="#">Home</a></li>
+                                                    
+                                                              <!-- <li role="presentation" class="dropdown"> -->
+                                                                        <li role="presentation"><a  href="/inventory" role="button" aria-haspopup="true" aria-expanded="false">Farm Inventory</a></li>                                                        
+                                                                        <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"aria-expanded="false">Farm Inventory
+                                                                    <span class="caret"></span>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu">
+                                                                            <li><a href="/inventory">Livestock Report</a></li><li role="separator" class="divider"></li>
+                                                                            <li><a href="/inventory">Feed Report</a></li><li role="separator" class="divider"></li>
+                                                                            <li><a href="/inventory">Health Report</a></li>                                                                                                                                              
+                                                                    </ul> -->
+                                                            <!-- </li> -->
+                                                                    <!-- Help Desk -->
+                                                            <li role="presentation" class="dropdown">
+                                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"aria-expanded="false">Contact 
+                                                                    <span class="caret"></span>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu">
+                                                                            <li><a href="/help-desk/emergency">Emergency Contacts</a></li>
+                                                                            <li role="separator" class="divider"></li>
+                                                                            <li><a href="/help-desk/query">File Query</a></li>
+                                                                    </ul>
+                                                            </li>
+                                                         <!-- HELP DESK CENTER-->
+                                                           <li role="presentation"><a  href="/help-desk" role="button" aria-haspopup="true" aria-expanded="false">Help Desk Center</a></li>
+                                                    </ul> 
+                                         </div>
+            <!-- =================================================================================================================================================================== -->
+                                <%}else if (currentUser.department == "admin"){%>
+                                        <div style="width: 450%;">  
+                                                        <ul class="nav nav-pills nav-stacked" style="width: 15%; margin-top: 50px; color: wheat" >
+                                                            <!-- Home -->
+                                                            <li role="presentation"><a href="#">Home</a></li>
+
+                                                            <!-- ADD NEW INVENTORY -->
+                                                            <li role="presentation"><a  href="/inventory/new" role="button" aria-haspopup="true" aria-expanded="false">Add New Inventory</a></li>
+                                                            <li role="presentation"><a  href="/inventory" role="button" aria-haspopup="true" aria-expanded="false">Farm Inventory</a></li>                                                        
+                                                            
+                                                            <!-- <li role="presentation" class="dropdown"> -->
+                                                                    <!-- <a  href="/inventory" role="button" aria-haspopup="true" aria-expanded="false">Farm Inventory</a>  -->
+                                                                    <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"aria-expanded="false">Farm Inventory
+                                                                    <span class="caret"></span>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu">
+                                                                            <li><a href="/inventory">Livestock Report</a></li><li role="separator" class="divider"></li>
+                                                                            <li><a href="/inventory">Feed Report</a></li><li role="separator" class="divider"></li>
+                                                                            <li><a href="/inventory">Health Report</a></li>                                                                                                                                              
+                                                                    </ul> -->
+                                                            <!-- </li> -->
+                                                                    <!-- Help Desk -->
+                                                            <li role="presentation" class="dropdown">
+                                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"aria-expanded="false">Contact 
+                                                                    <span class="caret"></span>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu">
+                                                                            <li><a href="/help-desk/emergency">Emergency Contacts</a></li>
+                                                                            <li role="separator" class="divider"></li>
+                                                                            <li><a href="/help-desk/query">File Query</a></li>
+                                                                    </ul>
+                                                            </li>
+                                                        <!-- HELP DESK CENTER-->
+                                                          <li role="presentation"><a  href="/help-desk" role="button" aria-haspopup="true" aria-expanded="false">Help Desk Center</a></li>
+                                                              
+                                                    </ul> 
+                                         </div>                             
+      <!-- =======================================================================================================================================================                           -->
+                                <%}else if(currentUser.department !== "livestock" && currentUser.department !== "health" && currentUser.department !== "feed" ){%>
+                                        <div style="width: 450%;">  
+                                                <ul class="nav nav-pills nav-stacked" style="width: 15%; margin-top: 50px; color: wheat" >
+                                                        <h1>HOW DID YOU GET HERE WITH NO DEPARTMENT?? </h1>   
+                                                        <h1>YOU REALLY DONT BELONG HERE</h1>  
+                                                        <h1>PLEASE CONTACT THE HELP DESK DEPARTMENT</h1> 
+                                                </ul> 
+                                        </div>         
+<!-- =============================================================================================================================================== -->
+                                <%}else{%>
+                                        <div style="width: 450%;">  
+
+                                                <ul class="nav nav-pills nav-stacked" style="width: 15%; margin-top: 50px; color: wheat" >
+                                                        <!-- Home -->
+                                                        <li role="presentation"><a href="#">Home</a></li>
+
+                                                        <!-- ADD NEW INVENTORY -->
+                                                        <li role="presentation"><a  href="/inventory/new" role="button" aria-haspopup="true" aria-expanded="false">Add New Inventory</a></li>
+                                                        <li role="presentation"><a  href="/inventory" role="button" aria-haspopup="true" aria-expanded="false">Farm Inventory</a></li>                                                        
+                                                        <!-- <li role="presentation" class="dropdown"> -->
+                                                                <!-- <a  href="/inventory" role="button" aria-haspopup="true" aria-expanded="false">Farm Inventory</a>  -->
+                                                                <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"aria-expanded="false">Farm Inventory
+                                                                <span class="caret"></span>
+                                                                </a>
+                                                                <ul class="dropdown-menu">
+                                                                        <li><a href="/inventory">Livestock Report</a></li><li role="separator" class="divider"></li>
+                                                                        <li><a href="/inventory">Feed Report</a></li><li role="separator" class="divider"></li>
+                                                                        <li><a href="/inventory">Health Report</a></li>                                                                                                                                              
+                                                                </ul> -->
+                                                        <!-- </li> -->
+                                                                <!-- Help Desk -->
+                                                        <li role="presentation" class="dropdown">
+                                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"aria-expanded="false">Contact 
+                                                                <span class="caret"></span>
+                                                                </a>
+                                                                <ul class="dropdown-menu">
+                                                                        <li><a href="/help-desk/emergency">Emergency Contacts</a></li>
+                                                                        <li role="separator" class="divider"></li>
+                                                                        <li><a href="/help-desk/query">File Query</a></li>
+                                                                </ul>
+                                                        </li>
+                                                </ul> 
+                                        </div>
+                                <%}%>
+                        </div>        
+                        </div>
+
+
+              <!-- jumbotron start here -->
+               <div class="container" style="width: 100%; margin-top: 50px; ">
+                        <div class="row">
+                            <div class="col-lg-12 col-lg-6 col-md-4">
+                                    <!-- <div class="thumbnail"> -->
+                                        <div class="jumbotron" style="background-color: #ffcc;">
+                                            <h2 style="font-weight: 700;" class="display-3"> Welcome</h2>
+                                            <hr>
+                                            <h4 class="para"> ABC Farm!</h4>
+                                            <h4 class="para"> The only platform where you can get your dream animal at an affordable price!</h4>
+                                            <a class="btn btn-success btn-lg" href="/inventory/about" role="button">Read More!</a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                </div>
+
+         </div>
+ </div>
+
+<% include ./partials/foot%>
+<% include ./partials/footer%>

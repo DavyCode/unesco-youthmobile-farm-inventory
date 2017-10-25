@@ -1,0 +1,76 @@
+<% include ../partials/head%>
+<% include ../partials/header%>
+
+<div class="container" style="margin-top: 40px;">
+        <div class="jumbotron" style="background-color: #ffcc;">
+          <h1>QUERY SHOW PAGE</h1> 
+        </div> 
+
+
+
+<!-- ===============================================================================         -->
+
+<div class="well" id="well">
+    
+      <div class="thumbnail" style="background-color: #fff;border: 1.9px solid #ddd;border-radius: 5px;margin-left: -14px; margin-right: -14px;">
+    
+              <div class="row">
+                  <div class="col-md-3" >
+                      <h3> <i class="fa fa-bullhorn" aria-hidden="true"></i> Talk-Talk </h3>
+                      <div>
+                          <!-- <li class="list-group-item active" id="titleholder"><p><i class="fa fa-newspaper-o" aria-hidden="true"></i> <%=displayPost.title %></p> </li> -->
+                          <li class="list-group-item"><a href=""><i class="fa fa-user" aria-hidden="true"></i> Posted by </a></li>
+                          <li class="list-group-item"><i class="fa fa-clock-o" aria-hidden="true"></i>  <%=displayPost.createdAt.toLocaleTimeString() %>  <%=displayPost.createdAt.toLocaleDateString() %></li>
+                      </div>
+                  </div>
+<!-- ========================================================================================================================================= -->
+
+
+
+                  <div class="col-md-9" >
+                          <div class="thumbnail" style="background-color: white;">
+                                <h4 class="list-group-item active" id="titleholder"><p><i class="fa fa-newspaper-o" aria-hidden="true"></i> <%=displayPost.title %></p> </h4>
+    
+                              <hr>
+                                  <img class="img-responsive" src="/<%=displayPost.image1 %>" >
+                                  <hr>
+                                  <div class="caption-full">
+                                      <!-- <h4 class="caption">
+                                         <%=displayPost.text %>
+                                      </h4> -->
+                                      <p>
+                                         <%=displayPost.text %>
+                                      </p>
+                                      <!-- ============================================REMOVE=========== -->
+                                      <p>
+                                            Students will learn necessary competencies maintenance of basic personal computer hardware and operating systems. In order to receive CompTIA A+ certification a candidate must pass two exams. Students will learn necessary competencies maintenance of basic personal computer hardware and operating systems. In order to receive CompTIA A+ certification a candidate must pass two exams. Students will learn necessary competencies maintenance of basic personal computer hardware and operating systems. In order to receive CompTIA A+ certification a candidate must pass two exams. Students will learn necessary competencies maintenance of basic personal computer hardware and operating systems. In order to receive CompTIA A+ certification a candidate must pass two exams.
+                                      </p>
+    
+    
+                                     <hr>
+                                     <div class="text-right">
+                                         <a class="btn btn-xs btn-success" href="#">Like <i class="fa fa-thumbs-up" aria-hidden="true"  ></i></a>
+                                         <a class="btn btn-xs btn-success" href="#">Comment <i class="fa fa-comments" aria-hidden="true"></i></a>
+                                     </div>
+                                      <!--Edit button-->
+                                      <a id="edit-btn" class="btn btn-xs btn-warning" href="/<%= displayPost._id %>/edit_post">Edit post</a>
+                                      <!--delete form-->
+                                      <form id="del-btn" action="/<%=displayPost._id %>?_method=DELETE" method="POST">
+                                          <!-- <button class="btn btn-xs btn-danger" >Delete post <i class="fa fa-times" aria-hidden="true"></i></button> -->
+                                          <button class="btn btn-xs btn-danger" >Delete post <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    
+                                      </form>
+                                 </div>
+                          </div>
+                  </div>
+            </div>
+    
+        </div>
+      </div>
+    </div>
+
+        
+</div>
+
+<% include ../partials/footer%>
+<% include ../partials/foot%>

@@ -1,0 +1,237 @@
+<% include ../partials/head%>
+<% include ../partials/header%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+           <form action="/inventory" method="POST">
+                <div class="container-fluid">
+
+                    <% if(currentUser.department == "feed"){%>
+                                        <div>
+                                             <br><div class="jumbotron" style="background-color: #ffcc;"><br>
+                                             <h2 style="align-content: center" >ADD NEW FEED RECORD</h2>
+                                    </div><br>
+                                    <table class="table table-hover" border="4px" style="color: green; align-content: center;">
+                                            <thead>
+                                                    <tr>
+                                                        <th>LIVESTOCK</th>
+                                                        <th>TONS OF FEED</th>
+                                                        <th>NUMBER OF LIVESTOCK FEED</th>
+                                                    </tr>
+                                            </thead>        
+                                        <!-- Table data and inputs -->
+                                            <tbody>
+                                                    <tr>
+                                                            <td>
+                                                                <select name="fed_livestock">
+                                                                    <option>Cow</option>
+                                                                    <option>Chicken</option>
+                                                                    <option>Goat</option>
+                                                                </select>
+                                                            </td>
+                                                            <td><input type="number" size="15" name="tons_of_feed"></td>
+                                                            <td><input type="number" size="15" name="number_livestock_fed"></td>
+                                                    </tr>
+                                            </tbody>
+                                            
+                                    </table> <br>
+                        <div>
+                                 <label> <h4 style="color: green;">Write a Report Here</h4></label> <br>
+                                <textarea rows="8" cols="100" placeholder="Write a Report" name="report"></textarea>
+                        </div>
+                         <button class="btn btn-lg btn-success" style="margin-top: 20px">Submit Report!</button>
+
+                    <%}else if(currentUser.department == "livestock"){%>
+                                  
+                                <div>
+                                        <br><div class="jumbotron" style="background-color: #ffcc;"><br>
+                                        <h2 style="align-content: center" >LIVESTOCK RECORDS</h2>
+                                 </div><br>   
+                                <table class="table table-hover" border="4px" style="color: green; align-content: center;">
+                                        <thead>
+                                                <tr>
+                                                        <th>LIVESTOCK</th>
+                                                        <th>NUMBER OF LIVESTOCK</th>
+                                                </tr>
+                                                <!-- Table data and inputs -->
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>
+                                                            <select name="selected_livestock">
+                                                                <option>Cow</option>
+                                                                <option>Chicken</option>
+                                                                <option>Goat</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="number" size="15" name="available_livestock"></td>
+                                                </tr>
+                                        </tbody>
+                                </table> <br>
+                        <div>
+                                <label> <h4 style="color: green;">Write a Report Here</h4></label> <br>
+                                <textarea rows="8" cols="100" placeholder="Write a Report" name="report"></textarea>
+                        </div>
+                        <button class="btn btn-lg btn-success" style="margin-top: 20px">Submit Report!</button> 
+
+                     <%}else if(currentUser.department == "health"){%>  
+                                         <div>
+                                            <br><div class="jumbotron" style="background-color: #ffcc;"><br>
+                                            <h2 style="align-content: center" >HEALTH RECORDS</h2>
+                                    </div><br>
+                                    <table class="table table-hover" border="4px" style="color: green; align-content: center;">
+                                            <thead>
+                                                    <tr>
+                                                            <th>LIVESTOCK</th>
+                                                            <th>NUMBER OF DEAD LIVESTOCK</th>
+                                                            <th>NUMBER OF NEW-BORN LIVESTOCK </th>
+                                                            <th>VACCINATED</th>
+                                                            <th>NUMBER OF SICK LIVESTOCK</th>
+                                                    </tr>
+                                            </thead> 
+                                            <tbody>
+                                                    <!-- Table data and inputs -->
+                                                    <tr>
+                                                            <td>
+                                                                <select name="health_selected_livestock">
+                                                                    <option>Cow</option>
+                                                                    <option>Chicken</option>
+                                                                    <option>Goat</option>
+                                                                </select>
+                                                            </td>
+                                                            <td><input type="number" size="15" name="death"></td>
+                                                            <td><input type="number" size="15" name="birth"></td>
+                                                            <td><input type="number" size="15" name="vaccinated"></td>
+                                                            <td><input type="number" size="15" name="sick"></td>
+                                                    </tr>     
+                                            </tbody>   
+                                            
+                                            
+                                    </table> <br>
+                                <div>
+                                                <label> <h4 style="color: green;">Write a Report Here</h4></label> <br>
+                                                <textarea rows="8" cols="100" placeholder="Write a Report" name="report"></textarea>
+                                </div>
+                                <button class="btn btn-lg btn-success" style="margin-top: 20px">Submit Report!</button>
+                 <!-- ADMIN DEPARTMENT ========================================================================================================                   -->
+                    <%}else if(currentUser.department == "admin"){%>
+                        <div>
+                                        <br><div class="jumbotron" style="background-color: #ffcc;"><br>
+                                        <h2 style="align-content: center" >ADD NEW FEED RECORD</h2>
+                               </div><br>
+                               <table class="table table-hover" border="4px" style="color: green; align-content: center;">
+                                       <thead>
+                                               <tr>
+                                                   <th>LIVESTOCK</th>
+                                                   <th>TONS OF FEED</th>
+                                                   <th>NUMBER OF LIVESTOCK FEED</th>
+                                               </tr>
+                                       </thead>        
+                                   <!-- Table data and inputs -->
+                                       <tbody>
+                                               <tr>
+                                                       <td>
+                                                           <select name="fed_livestock">
+                                                               <option>Cow</option>
+                                                               <option>Chicken</option>
+                                                               <option>Goat</option>
+                                                           </select>
+                                                       </td>
+                                                       <td><input type="number" size="15" name="tons_of_feed"></td>
+                                                       <td><input type="number" size="15" name="number_livestock_fed"></td>
+                                               </tr>
+                                       </tbody>
+                                       
+                               </table> <br>
+
+                             
+                           <div>
+                                   <br><div class="jumbotron" style="background-color: #ffcc;"><br>
+                                   <h2 style="align-content: center" >LIVESTOCK RECORDS</h2>
+                            </div><br>   
+                           <table class="table table-hover" border="4px" style="color: green; align-content: center;">
+                                   <thead>
+                                           <tr>
+                                                   <th>LIVESTOCK</th>
+                                                   <th>NUMBER OF LIVESTOCK</th>
+                                           </tr>
+                                           <!-- Table data and inputs -->
+                                   </thead>
+                                   <tbody>
+                                           <tr>
+                                                   <td>
+                                                       <select name="selected_livestock">
+                                                           <option>Cow</option>
+                                                           <option>Chicken</option>
+                                                           <option>Goat</option>
+                                                       </select>
+                                                   </td>
+                                                   <td><input type="number" size="15" name="available_livestock"></td>
+                                           </tr>
+                                   </tbody>
+                           </table> <br>
+
+                                    <div>
+                                       <br><div class="jumbotron" style="background-color: #ffcc;"><br>
+                                       <h2 style="align-content: center" >HEALTH RECORDS</h2>
+                               </div><br>
+                               <table class="table table-hover" border="4px" style="color: green; align-content: center;">
+                                       <thead>
+                                               <tr>
+                                                       <th>LIVESTOCK</th>
+                                                       <th>NUMBER OF DEAD LIVESTOCK</th>
+                                                       <th>NUMBER OF NEW-BORN LIVESTOCK </th>
+                                                       <th>VACCINATED</th>
+                                                       <th>NUMBER OF SICK LIVESTOCK</th>
+                                               </tr>
+                                       </thead> 
+                                       <tbody>
+                                               <!-- Table data and inputs -->
+                                               <tr>
+                                                       <td>
+                                                           <select name="health_selected_livestock">
+                                                               <option>Cow</option>
+                                                               <option>Chicken</option>
+                                                               <option>Goat</option>
+                                                           </select>
+                                                       </td>
+                                                       <td><input type="number" size="15" name="death"></td>
+                                                       <td><input type="number" size="15" name="birth"></td>
+                                                       <td><input type="number" size="15" name="vaccinated"></td>
+                                                       <td><input type="number" size="15" name="sick"></td>
+                                               </tr>     
+                                       </tbody>   
+                                       
+                                       
+                               </table> <br>  
+                        <div>
+                                <label> <h4 style="color: green;">Write a Report Here</h4></label> <br>
+                                <textarea rows="8" cols="100" placeholder="Write a Report" name="report"></textarea>
+                        </div>
+                        <button class="btn btn-lg btn-success" style="margin-top: 20px">Submit Report!</button>                              
+
+                    <!-- ====================================================================================================================== -->
+                    <%}else if(currentUser.department !== "admin" && currentUser.department !== "livestock" && currentUser.department !== "health" && currentUser.department !== "feed"){%>  
+                       
+                        <h1> OOH!!!! YOU MUST BE A MEMBER OF THE HELP DESK TEAM</h1>
+                        <h1>KINDLY VISIT THE HELP DESK CENTER TO VIEW COMPLAINS <a href="/help-desk">here</a></h1>
+
+                   <%}else{%>  
+                          
+                         <h1>HOW DID YOU GET HERE WITH NO DEPARTMENT??? PLEASE CONSULT THE ADMIN OFFICE</h1>
+                   <%}%>              
+                </div>     
+           </form>
+        </div>              
+    </div>
+</div>
+
+<% include ../partials/footer%>
+<% include ../partials/foot %>
+
+
+
+
+
+

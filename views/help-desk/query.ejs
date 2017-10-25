@@ -1,0 +1,36 @@
+<% include ../partials/head%>
+<% include ../partials/header%>
+
+<div class="container" style="margin-top: 40px;">
+        <div class="jumbotron" style="background-color: #ffcc;">
+          <h1>HELP DESK</h1> 
+          <p>FILE A QUERY</p>
+        </div> 
+        
+        <form action="/help-desk" method="POST" role="form">
+            <div class="form-group">
+              <div class="form-inline">
+                <label for="Area">Area:</label>
+                <select name="area" id="" class="form-control">
+                  <option value="feed">Feed</option>
+                  <option value="livestock">Livestock</option>
+                  <option value="health">Health</option>
+                </select>
+              </div>	
+            </div>
+
+            <div class="form-group">
+              <label for="comment">Problem nature:</label>
+              <textarea class="form-control" rows="3" cols="4" id="comment" name="problem_nature"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="comment">Description:</label>
+              <textarea class="form-control" rows="5" cols="15" id="comment" name="description"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">SUBMIT QUERY!!!</button>
+          </form>
+</div>
+
+<% include ../partials/footer%>
+<% include ../partials/foot%>

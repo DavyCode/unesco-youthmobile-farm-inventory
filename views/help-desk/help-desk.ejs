@@ -1,0 +1,47 @@
+<% include ../partials/head%>
+<% include ../partials/header%>
+
+
+<div class="container">
+      
+    <div class="row">
+        <!-- <div class="col-md-3"> -->
+                <div class="row text-center" style="display:flex; flex-wrap: wrap">
+                        <div class="container">
+                              <div class="jumbotron" style="background-color: #ffcc;">
+                                  <h1>HELP DESK COMPLAINS</h1>                                  
+                              </div>
+                        </div>
+                </div>    
+    </div>
+    <div class="well">
+        <div class="container-fluid">
+               <div class="thumbnail">
+                  <div class="row">
+                    <% allQuery.forEach((data) => { %>
+                        <div  class=" col-lg-12">
+                              <div class="col-lg-4" style="margin-top : 15px; margin-left :-20px;">
+                                    <ul>
+                                        New query by : <%-data.author.username%> <br>
+                                        Time : <%- data.createdAt.toLocaleTimeString()%> 
+                                        
+                                    </ul>
+                              </div>
+                              <div class="col-lg-8">
+                                  <p>
+                                      <a href="/help-desk/query/<%= data._id%>" style=" margin-bottom : -30px;"> <%- data.problem_nature.substring(0, 90) %>... </a>
+                                  </p>
+                              </div>
+                              <hr>   
+                        </div>
+                    <% }); %>    
+                  </div>
+               </div>
+         </div>
+    </div> 
+</div>
+
+
+<% include ../partials/footer%>
+<% include ../partials/foot %>
+

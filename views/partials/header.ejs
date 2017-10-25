@@ -1,0 +1,31 @@
+<body id="body">
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+                <a class="navbar-brand" id="navbrand" href="/home" aria-hidden="true">AGROTECH</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-nav-demo">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/home">Home <i class="fa fa-home" aria-hidden="true" ></i></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                        <% if(!currentUser){%>
+                            <li><a href="/register">Sign Up <i class="fa fa-user" aria-hidden="true"></i><i class="fa fa-plus" aria-hidden="true"></i></a></li>
+                            <li><a href="/login">Login <i class="fa fa-user" aria-hidden="true"></i></a></li>
+                        <%}else{%>
+                            <li><a href="#"><i class="fa fa-user" ></i> <%= currentUser.department%> Department </a></li>
+                            <li><a href="#"><i class="fa fa-user" ></i> Welcome <%= currentUser.username%></a></li>
+                            <li><a href="/logout">Logout <i class="fa fa-times" ></i></a></li>
+                        <%}%>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
