@@ -61,8 +61,8 @@ app.use('/', authRoutes);
 app.use('/inventory', inventoryRoutes );
 app.use('/help-desk', helpdeskRoutes );
 
+const port = process.env.PORT || 3008;
 
-
-app.listen(3008, () => {
+app.listen(port, () => {
     console.log('app listening on port 3008........')
 })
