@@ -5,7 +5,6 @@
 <div class="container">
       
     <div class="row">
-        <!-- <div class="col-md-3"> -->
                 <div class="row text-center" style="display:flex; flex-wrap: wrap">
                         <div class="container">
                               <div class="jumbotron" style="background-color: #ffcc;">
@@ -24,12 +23,11 @@
                                     <ul>
                                         New query by : <%-data.author.username%> <br>
                                         Time : <%- data.createdAt.toLocaleTimeString()%> 
-                                        
-                                    </ul>
+                                     </ul>
                               </div>
                               <div class="col-lg-8">
                                   <p>
-                                      <a href="/help-desk/query/<%= data._id%>" style=" margin-bottom : -30px;"> <%- data.problem_nature.substring(0, 90) %>... </a>
+                                      <a href="/help-desk/query/<%= data._id%>" style=" margin-bottom : -30px;"> <%- data.problem_nature.substring(0, 200) %>... </a>
                                   </p>
                               </div>
                               <hr>   
@@ -39,6 +37,16 @@
                </div>
          </div>
     </div> 
+
+
+
+
+
+
+
+
+
+
 </div>
 
 
