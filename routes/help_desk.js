@@ -59,6 +59,8 @@ router.post('/', (req, res) => {
 // QUERY SHOW PAGE
 router.get('/query/:id', (req, res) => {
     Query.findById(req.params.id, (err, foundQuery) => {
+      console.log(foundQuery.description + "found query description!!!!!");
+      console.log(foundQuery.problem_nature + "found query problem!!!!!");
       (err)? console.log(err): res.render("help-desk/show", { foundQuery: foundQuery });
   });
 });

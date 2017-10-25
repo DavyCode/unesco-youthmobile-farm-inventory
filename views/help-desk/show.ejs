@@ -28,23 +28,19 @@
                   <div class="col-md-9" >
                           <div class="thumbnail" style="background-color: white;">
                                 <h4 class="list-group-item active" id="titleholder"><p><i class="fa fa-newspaper-o" aria-hidden="true"></i> New Query </p> </h4>
-    
-                              <hr>
-                                
-                                        <div class="caption-full">
+                                         <div class="caption-full" style="margin : 20px">
                                             
-                                                <p>
-                                                    <%=foundQuery.report %>
+                                                <p style="margin : 20px">
+                                                    <%=foundQuery.problem_nature %>
                                                 </p>
+                                                <hr style="width: 100%">
                                                 <!-- ============================================REMOVE=========== -->
                                                 <p>
-                                                        <%=foundQuery.report %>
+                                                    <%=foundQuery.description %>
                                                 </p>
                 
                 
                                                 <hr>
-                                                <!--Edit button-->
-                                                <a id="edit-btn" class="btn btn-xs btn-warning" href="/<%= foundQuery._id %>/edit_post">Edit post</a>
                                                 <!--delete form-->
                                                 <form id="del-btn" action="/<%=foundQuery._id %>?_method=DELETE" method="POST">
                                                     <!-- <button class="btn btn-xs btn-danger" >Delete post <i class="fa fa-times" aria-hidden="true"></i></button> -->
