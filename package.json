@@ -1,7 +1,7 @@
 {
-    "name": "passport_auth",
+    "name": "farm_inventory",
     "version": "1.0.0",
-    "description": "using passport auth",
+    "description": "unesco youthmobile farm inventory project",
     "main": "app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
