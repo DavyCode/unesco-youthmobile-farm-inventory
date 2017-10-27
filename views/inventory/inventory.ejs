@@ -43,9 +43,15 @@
                                                     <td>
                                                         <%=data.author.username %>
                                                     </td>
-                                                    <td>
-                                                            <a href="/inventory/<%= data._id/report%>"class="btn btn-primary">More info</a>
-                                                    </td>
+                                                    <%if( data.report){%>
+                                                        <td>
+                                                                <a href="/inventory/<%= data._id%>/report"class="btn btn-success">View Report</a>
+                                                        </td>
+                                                    <%}else{%>
+                                                        <td>
+                                                               No available report 
+                                                        </td>     
+                                                    <%}%>
                                                 </tr>
                                         <%}else{%>  
                                             
@@ -96,6 +102,15 @@
                                                     <td>
                                                         <%= data.author.username %>
                                                     </td>
+                                                    <%if( data.report){%>
+                                                        <td>
+                                                                <a href="/inventory/<%= data._id%>/report"class="btn btn-success">View Report</a>
+                                                        </td>
+                                                    <%}else{%>
+                                                        <td>
+                                                               No available report 
+                                                        </td>     
+                                                    <%}%>
                                                 </tr>
                                         <%}else{%>  
                                                     
@@ -122,7 +137,6 @@
                                                                 <th> Vaccinated </th>
                                                                 <th> Sick </th>
                                                                 <th> Created by </th>
-                                                                
                                                                <th> Report </th>
                                                             </strong>
                                                     </tr>
@@ -152,6 +166,15 @@
                                                         <td>
                                                             <%=data.author.username %>
                                                         </td>
+                                                        <%if( data.report){%>
+                                                            <td>
+                                                                    <a href="/inventory/<%= data._id%>/report"class="btn btn-success">View Report</a>
+                                                            </td>
+                                                        <%}else{%>
+                                                            <td>
+                                                                   No available report 
+                                                            </td>     
+                                                        <%}%>
                                                     </tr>
                                              <%}else{%>  
                                                     
@@ -195,6 +218,15 @@
                                                 <td>
                                                      <%=data.author.username %>
                                                 </td>
+                                                <%if( data.report){%>
+                                                    <td>
+                                                            <a href="/inventory/<%= data._id%>/report"class="btn btn-success">View Report</a>
+                                                    </td>
+                                                <%}else{%>
+                                                    <td>
+                                                           No available report 
+                                                    </td>     
+                                                <%}%>
                                             </tr>
                                        <%}else{%> 
 
@@ -245,6 +277,15 @@
                                                     <td>
                                                         <%=data.author.username %>
                                                     </td>
+                                                    <%if( data.report){%>
+                                                        <td>
+                                                                <a href="/inventory/<%= data._id%>/report"class="btn btn-success">View Report</a>
+                                                        </td>
+                                                    <%}else{%>
+                                                        <td>
+                                                               No available report 
+                                                        </td>     
+                                                    <%}%>
                                                 </tr>
                                         <%}else{%> 
 
@@ -301,9 +342,15 @@
                                                 <td>
                                                     <%=data.author.username %>
                                                 </td>
-                                                <td>
-                                                        <a href="/inventory/<%= data._id%>/report"class="btn btn-success">More info</a>
-                                                </td>
+                                                <%if( data.report){%>
+                                                    <td>
+                                                            <a href="/inventory/<%= data._id%>/report"class="btn btn-success">View Report</a>
+                                                    </td>
+                                                <%}else{%>
+                                                    <td>
+                                                           No available report 
+                                                    </td>     
+                                                <%}%>
                                             </tr>
                                      <%}else{%> 
 

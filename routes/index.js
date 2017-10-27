@@ -14,15 +14,8 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/home', 
-        isLoggedIn, 
-        (req, res) => {
-          // console.log(req.user + " this is the current user for home")
-          // console.log(req.user.username + " this is the current user username")
-          // console.log(req.user.department + " this is the current user department")
-          // console.log(res.locals.currentUser + " this is the current locals user for home")
-  res.render('home')
-  // res.render(req.baseUrl +'/home')
+router.get('/home', isLoggedIn, (req, res) => {
+    res.render('home')
 });
 
 // SHOW REGISTERATION PAGE
@@ -34,11 +27,11 @@ router.get('/register', (req, res) => {
 router.post('/register', (req, res) => {
   User.register(new User({ username: req.body.username, department: req.body.department}), req.body.password, (err, user) => {
       if (err) {
-          console.log(err);
+          req.flash('error', err.message);
           return res.render('user/register');
       }
       passport.authenticate('local')(req, res, () => {
-        // req.flash('success', "Welcome " + " " + user.username);
+          req.flash('success', "Thanks " + " " + user.username + " for choosing Agrotech..a perfect solution for your farm inventories");
           res.redirect('/home')
       });
   })
@@ -54,7 +47,10 @@ router.post('/login', passport.authenticate('local', {
   successRedirect: '/home',
   failureRedirect: '/login'
 }), (req, res) => {
-
+    //  if(err){
+    //   req.flash('error', "Please provide accurate login details");  
+    //  }
+    //  req.flash('success', "Welcome " + " " + req.user.username);     
 });
 
 //ADMIN LOGIN
@@ -77,6 +73,7 @@ router.post('/login', passport.authenticate('local', {
 // LOGOUT ROUTE
 router.get('/logout', (req, res) => {
   req.logout();
+  req.flash('success', "Goodbye")
   res.redirect('/')
 });
 

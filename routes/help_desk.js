@@ -49,9 +49,11 @@ router.post('/', (req, res) => {
   console.log(new_query);
 
   Query.create(new_query, function(err, newlyCreatedQuery){
-    (err) ? console.log(err): 
-    // res.redirect("/query");
-    res.redirect("/home");
+    if(err){
+       req.flash("error", "Something Went Wrong");
+      }
+      req.flash("success", "Your Query has been sent. A member of the helpdesk or admin department will get in touch with you immediately");
+      res.redirect("/home");
   });
 });
 
@@ -59,8 +61,6 @@ router.post('/', (req, res) => {
 // QUERY SHOW PAGE
 router.get('/query/:id', (req, res) => {
     Query.findById(req.params.id, (err, foundQuery) => {
-      console.log(foundQuery.description + "found query description!!!!!");
-      console.log(foundQuery.problem_nature + "found query problem!!!!!");
       (err)? console.log(err): res.render("help-desk/show", { foundQuery: foundQuery });
   });
 });

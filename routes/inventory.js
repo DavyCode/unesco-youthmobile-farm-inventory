@@ -16,28 +16,18 @@ router.get("/", function(req, res) {
 
 
 //NEW - LIVESTOCK
-router.get("/new", 
-// isLoggedIn, 
-function(req, res) {
+router.get("/new", isLoggedIn, function(req, res) {
     res.render("inventory/new");
 });
 
 
-router.get("/about", 
-// isLoggedIn, 
-function(req, res) {
+router.get("/about", isLoggedIn, function(req, res) {
     res.render("inventory/about");
 });
 
 
-
-
-
-
 // CREATE - make new livestock inventory in DB
-router.post("/", 
-isLoggedIn, 
-function(req, res) {
+router.post("/", isLoggedIn, function(req, res) {
 
     //function for amount
     function total() {
@@ -77,7 +67,12 @@ var new_inventory = {
 };
 // create a new campground and save to db
 Inventory.create(new_inventory, function(err, newlyCreated) {
-    (err) ? console.log(err): res.redirect("/inventory");
+    // (err) ? console.log(err): res.redirect("/inventory");
+    if(err){
+        req.flash("error", "Something Went Wrong");
+    }
+    req.flash("success", "New inventory added");
+    res.redirect("/inventory");
 });
 });
 
