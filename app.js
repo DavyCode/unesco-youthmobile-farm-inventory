@@ -6,11 +6,12 @@ var express = require('express'),
     LocalStrategy = require('passport-local'),
     methodOverride = require('method-override'),
     passportLocalMongoose = require('passport-local-mongoose'),
-    User = require('./models/user');
-var app = express();
+    User = require('./models/user'),
+    app = express();
 
 
-const db = mongoose.connect("mongodb://davycode:swood/66@ds231715.mlab.com:31715/agrotech" ,(err) => {
+    // var db = mongoose.connect("mongodb://127.0.0.1:27017/GO_Camping");
+const db = mongoose.connect("mongodb://127.0.0.1:27017/agrotech" ,(err) => {
     (err) ? console.error(err, 'Error Connecting to Database!'): console.log('DB Connected. Build Safely!');
 });
 

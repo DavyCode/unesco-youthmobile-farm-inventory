@@ -74,15 +74,7 @@ var new_inventory = {
         department : req.user.department        
     },
     amount : total()
-    // {
-    //     type: Number,
-    //     total: function(){
-    //          return InventorySchema.number_livestock_fed * 1000;
-    //      }
-    //  },
 };
-// console.log( new_inventory.report +" " + new_inventory.fed_livestock+" " + new_inventory.tons_of_feed+" " +new_inventory.number_livestock_fed+" " + new_inventory.selected_livestock +" " +new_inventory.available_livestock+" " + new_inventory.health_selected_livestock+" " + new_inventory.death+" " + new_inventory.birth+" " + new_inventory.vaccinated+" " +new_inventory.sick+" " +new_inventory.author + " " +"from post route NEW INVENTORY!!!!!!!");
-// console.log(new_inventory.author.department + " NOW THIS IS THE DEPARTMENT IT EXIST");
 // create a new campground and save to db
 Inventory.create(new_inventory, function(err, newlyCreated) {
     (err) ? console.log(err): res.redirect("/inventory");
@@ -94,11 +86,12 @@ Inventory.create(new_inventory, function(err, newlyCreated) {
 
 
 
-router.get("/:id", 
-// isLoggedIn, 
-function(req, res) {
-//   console.log("get livestock_new!!!!!!!!!!!!!!!!!");
-    res.render("inventory/show");
+router.get("/:id/report", isLoggedIn, function(req, res) {
+    console.log(req.params.id + "this is the params")
+
+    Inventory.findById(req.params.id, (err, foundInventory) => {
+        (err)? console.log(err): res.render("inventory/report", { foundInventory: foundInventory });
+    });
 });
 
 

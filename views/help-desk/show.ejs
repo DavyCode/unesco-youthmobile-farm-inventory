@@ -28,25 +28,21 @@
                   <div class="col-md-9" >
                           <div class="thumbnail" style="background-color: white;">
                                 <h4 class="list-group-item active" id="titleholder"><p><i class="fa fa-newspaper-o" aria-hidden="true"></i> New Query : <%= foundQuery.area %> </p> </h4>
-                                         <div class="caption-full" style="margin : 20px">
-                                            
-                                                <p style="margin : 20px">
+                                         <div class="caption-full" style="margin-left : 20px; margin-right : 20px">
+                                             
+                                                <p style="margin : 20px;">
                                                     <%=foundQuery.problem_nature %>
                                                 </p>
-                                                <hr style="width: 100%">
+                                                <hr>
                                                 <!-- ============================================REMOVE=========== -->
                                                 <p>
                                                     <%=foundQuery.description %>
                                                 </p>
-                
-                
-                                                <hr>
                                                 <!--delete form-->
-                                                <form id="del-btn" action="/<%=foundQuery._id %>?_method=DELETE" method="POST">
+                                                <!-- <form id="del-btn" action="/<%=foundQuery._id %>?_method=DELETE" method="POST">
                                                     <!-- <button class="btn btn-xs btn-danger" >Delete post <i class="fa fa-times" aria-hidden="true"></i></button> -->
-                                                    <button class="btn btn-xs btn-danger" >Delete post <i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                
-                                                </form>
+                                                    <!-- <button class="btn btn-xs btn-danger" >Delete post <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                </form> --> 
                                         </div>
                           </div>
                   </div>

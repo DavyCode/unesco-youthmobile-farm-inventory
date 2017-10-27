@@ -1,0 +1,71 @@
+<% include ../partials/head%>
+<% include ../partials/header%>
+
+<div class="container" style="margin-top: 40px;">
+        <div class="jumbotron" style="background-color: #ffcc;">
+          <h1>REPORT SHOW PAGE</h1> 
+        </div> 
+
+
+
+<!-- ===============================================================================         -->
+
+<div class="well" id="well">
+    
+      <div class="thumbnail" style="background-color: #fff;border: 1.9px solid #ddd;border-radius: 5px;margin-left: -14px; margin-right: -14px;">
+    
+              <div class="row">
+                  <div class="col-md-3" >
+                      <div>
+                          <li class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i> Posted by <%=foundInventory.author.username %></li>
+                          <li class="list-group-item"><i class="fa fa-clock-o" aria-hidden="true"></i>  <%=foundInventory.createdAt.toLocaleTimeString() %>  <%=foundInventory.createdAt.toLocaleDateString() %></li>
+                      </div>
+                  </div>
+<!-- ========================================================================================================================================= -->
+
+
+
+                  <div class="col-md-9" >
+                          <div class="thumbnail" style="background-color: white;">
+                                <h4 class="list-group-item active" id="titleholder"><p><i class="fa fa-newspaper-o" aria-hidden="true"></i> <%= foundInventory.author.department %> report </p> </h4>
+                                         <div class="caption-full" style="margin : 20px">
+                                                <p>
+                                                    <%=foundInventory.report %>
+                                                </p>
+                                                <hr>
+                                                <a href="/inventory" class="btn btn-success"> Back to inventory </a>
+                                        </div>    
+                          </div>
+                  </div>
+            </div>
+    
+        </div>
+      </div>
+</div>
+
+<% include ../partials/footer%>
+<% include ../partials/foot%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include ../partials/footer%>
+<% include ../partials/foot%>

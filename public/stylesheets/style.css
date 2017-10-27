@@ -1,6 +1,6 @@
 #body {
-  /*padding: 50px;*/
-  font: 15px "Baloo", cursive;
+  /* padding: 50px; */
+  /* font: 15px "Baloo", cursive; */
   /* background-color: #00CCCC; */
   /* line-height: 1.42857143; */
 }
@@ -13,22 +13,14 @@
   background-color: #2C3E50;
   border: 1px solid black;
 }
-.navbar-inverse .navbar-nav > li > a{
+/* .navbar-inverse .navbar-nav > li > a{
 	/* color: wheat;
-  background-color: transparent; */
-}
+  background-color: transparent; 
+} */
 #navbrand{
   color:rgb(6, 110, 40);
 }
 
-
-#get-started{
-    /* margin-bottom: 70px; */
-}
-
-.thumbnail img {
-    /* width: 100%; */
-}
 
 div .thumbnail {
     padding: 0;
@@ -38,9 +30,6 @@ div .thumbnail {
     padding: 10px;
 }*/
 
-#delete-form {
-    /* display: inline; */
-}
 .nav-pills > li > a {
     border-radius: 4px;
     color: whitesmoke;
