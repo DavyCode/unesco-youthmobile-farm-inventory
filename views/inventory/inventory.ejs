@@ -5,13 +5,13 @@
 <div class="container">   
     <div class="row">
         <!-- <div class="col-md-3"> -->
-            <div class="well"> 
+            <!-- <div class="well">  -->
                 <div class="row text-center" style="display:flex; flex-wrap: wrap">
                         <div class="col-md-12 col-sm-12">
                             <div class="thumbnail">
 <!-- ==================================CHECK LIVESTOCK DEPARTMENT ======================================================-->
     <% if(currentUser.department == "livestock"){%>
-                                     <div class="jumbotron" style="background-color: #ffcc;">
+                                     <div class="jumbotron" style="background-color: wheat;">
                                         <h1>DAILY LIVESTOCK RECORDS</h1> 
                                      </div> 
                                         <table class="table table-condensed table-hover" border="4px" style="color: green; align-content: center;">
@@ -62,7 +62,7 @@
                                     </table>
   <!-- =============================== CHECK FEED DEPARTMENT  ====================================================================================                               -->
     <%}else if(currentUser.department == "feed"){%> 
-                                     <div class="jumbotron" style="background-color: #ffcc;">
+                                     <div class="jumbotron" style="background-color: wheat;">
                                         <h1>DAILY FEED RECORDS</h1> 
                                      </div> 
                                     <table class="table table-condensed table-hover" border="4px" style="color: green; align-content: center;">
@@ -122,7 +122,7 @@
                                         </table>
         <!-- ================================== CHECK HEALTH DEPARTMENT===========================================================                                 -->
         <%}else if(currentUser.department == "health"){%> 
-                                        <div class="jumbotron" style="background-color: #ffcc;">
+                                        <div class="jumbotron" style="background-color: wheat;">
                                         <h1>DAILY HEALTH RECORDS</h1> 
                                         </div> 
                                         <table class="table table-condensed table-hover" border="4px" style="color: green; align-content: center;">
@@ -186,7 +186,7 @@
             <!-- =================================== CHECK ADMIN AND HELP DESK======================================================================== -->
 <%}else if(currentUser.department == "admin" || currentUser.department == "help-desk"){%> 
                                 <!-- ================================== LIVESTOCK DEPARTMENT ======================================================-->
-                                <div class="jumbotron" style="background-color: #ffcc;">
+                                <div class="jumbotron" style="background-color: wheat;">
                                         <h1>DAILY LIVESTOCK RECORDS</h1> 
                                 </div> 
                                 <table class="table table-condensed table-hover" border="4px" style="color: green; align-content: center;">
@@ -237,7 +237,7 @@
                             <!-- ======================== TABLE BODY ENDS HERE ========================= -->
                                     </table>
   <!-- =============================== FEED DEPARTMENT  ====================================================================================   -->
-                                    <div class="jumbotron" style="background-color: #ffcc;">
+                                    <div class="jumbotron" style="background-color: wheat;">
                                         <h1>DAILY FEED RECORDS</h1> 
                                     </div> 
                                     <table class="table table-condensed table-hover" border="4px" style="color: green; align-content: center;">
@@ -297,7 +297,7 @@
                                     </table>
 
          <!-- ================================== HEALTH DEPARTMENT===========================================================                                 -->
-                                    <div class="jumbotron" style="background-color: #ffcc;">
+                                    <div class="jumbotron" style="background-color: wheat;">
                                         <h1>DAILY HEALTH RECORDS</h1> 
                                      </div> 
          
@@ -361,7 +361,7 @@
                                 </table>
     <!-- ===================================================================================================================================== -->
         <%}else{%>  
-                     <div class="jumbotron" style="background-color: #ffcc;">
+                     <div class="jumbotron" style="background-color: wheat;">
                         <h1>HOW DID YOU GET HERE WITH NO DEPARTMENT??? PLEASE CONSULT THE ADMIN OFFICE</h1>
                     </div> 
          <%}%> 

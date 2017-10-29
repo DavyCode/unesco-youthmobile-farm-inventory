@@ -2,50 +2,47 @@
 <% include ../partials/header%>
 
 
-<div class="container">
-      
-    <div class="row">
-                <div class="row text-center" style="display:flex; flex-wrap: wrap">
-                        <div class="container">
-                              <div class="jumbotron" style="background-color: #ffcc;">
+<div class="container" style="margin-top: 40px;">
+                <!-- <div class="row text-center" style="display:flex; flex-wrap: wrap">
+                        <div class="container"> -->
+                              <div class="jumbotron" style="background-color: wheat;">
                                   <h1>HELP DESK COMPLAINS</h1>                                  
                               </div>
-                        </div>
-                </div>    
-    </div>
-    <div class="well">
-        <div class="container-fluid">
-               <div class="thumbnail">
-                  <div class="row">
-                    <% allQuery.forEach((data) => { %>
-                        <div  class=" col-lg-12">
-                              <div class="col-lg-4" style="margin-top : 15px; margin-left :-20px;">
-                                    <ul>
-                                        New query by : <%-data.author.username%> <br>
-                                        Time : <%- data.createdAt.toLocaleTimeString()%> 
-                                     </ul>
+
+
+    <div class="well" id="well">
+            
+             <div class="thumbnail" style="background-color: #fff;border: 1.9px solid #ddd;border-radius: 5px;margin-left: -14px; margin-right: -14px;">
+            
+                      <div class="row">
+                            <% allQuery.forEach((data) => { %>
+                          <div class="col-md-3" >
+                              <div>
+                                  <li class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i> Posted by <%=data.author.username %></li>
+                                  <li class="list-group-item"><i class="fa fa-clock-o" aria-hidden="true"></i>  <%=data.createdAt.toLocaleTimeString() %>  <%=data.createdAt.toLocaleDateString() %></li>
                               </div>
-                              <div class="col-lg-8">
-                                  <p>
-                                      <a href="/help-desk/query/<%= data._id%>" style=" margin-bottom : -30px;"> <%- data.problem_nature.substring(0, 200) %>... </a>
-                                  </p>
-                              </div>
-                              <hr>   
-                        </div>
-                    <% }); %>    
-                  </div>
-               </div>
-         </div>
-    </div> 
-
-
-
-
-
-
-
-
-
+                          </div>
+        <!-- ========================================================================================================================================= -->
+        
+        
+        
+                          <div class="col-md-9" >
+                                  <div class="thumbnail" style="background-color: white;">
+                                                 <div class="caption-full" style="margin-left : 20px; margin-right : 20px; display: inline;">
+                                                     
+                                                        <p style="margin : 10px;">
+                                                                <%- data.problem_nature.substring(0, 200) %>... 
+                                                                <a href="/help-desk/query/<%= data._id%>" class="btn btn-xs btn-success" style=" float : right;">View query  <i class="fa fa-arrow" aria-hidden="true"></i></a>
+                                                        </p>
+                                                       
+                                                </div>
+                                  </div>
+                          </div>
+                          <% }); %>  
+                    </div>
+            <hr>
+            </div>
+     </div>
 
 </div>
 

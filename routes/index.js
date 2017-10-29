@@ -31,7 +31,7 @@ router.post('/register', (req, res) => {
           return res.render('user/register');
       }
       passport.authenticate('local')(req, res, () => {
-          req.flash('success', "Thanks " + " " + user.username + " for choosing Agrotech..a perfect solution for your farm inventories");
+          req.flash('success', "Welcome " + " " + user.username + " to Agrotech..The perfect solution for your farm inventories");
           res.redirect('/home')
       });
   })
@@ -47,27 +47,8 @@ router.post('/login', passport.authenticate('local', {
   successRedirect: '/home',
   failureRedirect: '/login'
 }), (req, res) => {
-    //  if(err){
-    //   req.flash('error', "Please provide accurate login details");  
-    //  }
-    //  req.flash('success', "Welcome " + " " + req.user.username);     
+ 
 });
-
-//ADMIN LOGIN
-// router.get('/admin', (req, res) => {
-//   res.render('user/admin');
-// });
-
-
-// router.post('/admin', passport.authenticate('local', {
-//   successRedirect: '/home',
-//   failureRedirect: '/admin'
-// }), (req, res) => {
-
-// });
-
-
-
 
 
 // LOGOUT ROUTE

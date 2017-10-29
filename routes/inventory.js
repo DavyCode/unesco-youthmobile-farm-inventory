@@ -78,9 +78,6 @@ Inventory.create(new_inventory, function(err, newlyCreated) {
 
 
 
-
-
-
 router.get("/:id/report", isLoggedIn, function(req, res) {
     console.log(req.params.id + "this is the params")
 
