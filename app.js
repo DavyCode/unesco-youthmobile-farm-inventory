@@ -11,7 +11,7 @@ var express = require('express'),
 
 
 
-const db = mongoose.connect("mongodb://davycode:swood/66@ds231715.mlab.com:31715/agrotech",(err) => {
+const db = mongoose.connect("mongodb://127.0.0.1:27017/agrotech",(err) => {
     (err) ? console.error(err, 'Error Connecting to Database!'): console.log('DB Connected. Build Safely!');
 });
  
